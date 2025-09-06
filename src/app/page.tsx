@@ -1,103 +1,135 @@
+"use client"
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/Button";
+import {usePathname} from "next/navigation";
+import {clsx} from "clsx";
+import {inter} from "@/components/Fonts";
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+function Parterns() {
+    return <div className={"py-7 text-center space-y-4"}>
+        <div className={clsx(inter.className, "text-[#030303ff]")}>Trusted by individuals and teams at the
+            world's best companies
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <div className={"flex items-center font-bold  gap-7 text-3xl justify-center"}>
+            <div className={""}>LOGO</div>
+            <div className={""}>LOGO</div>
+            <div className={""}>LOGO</div>
+            <div className={""}>LOGO</div>
+            <div className={""}>LOGO</div>
+        </div>
+    </div>;
 }
+
+const Page = () => {
+    return <div className={""}>
+        <MainContainer>
+            <Header/>
+            <div className={"flex items-center justify-between"}>
+                <div className={"space-y-10"}>
+                    <div
+                        className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
+                        Free 30 DAYS TRIAL
+                    </div>
+                    <div className={clsx("font-[600] leading-[80px] text-7xl ")}>The best way
+                        <br/> to showcase<br/>
+                        your project.
+                    </div>
+                    <div className={clsx(inter.className, "text-[#030303ff] text-xl")}>Here you can put a short
+                        description about your
+                        project.
+                    </div>
+                    <div className={"flex gap-4 items-center"}>
+                        <Button type={"primary"} title={"Essayer gratuitement"}/>
+                        <Button type={"secondary"} title={"Comment ça marche ?"}/>
+                    </div>
+                </div>
+                <div className={clsx("")}>
+                    <Image src={"/der.png"} alt={"ddd"} width={"699"} height={"500"}/>
+                </div>
+            </div>
+            <Parterns/>
+            <div className={"my-[200px]"}></div>
+            <div className={" relative bg-white rounded-2xl  py-[100px] px-[60px]"}>
+                <div className={clsx('')}>
+                    <div className={"text-5xl font-[600] leading-[62px]"}>
+                        Introducing <br/>good solution<br/>
+                    </div>
+                    <div className={clsx(inter.className, "text-xl")}>
+                        Join our community and experience <br/>the benefits today!<br/>
+                    </div>
+                    <div>
+                        <Button type={"primary"} title={"Essayer gratuitement"}/>
+                    </div>
+                </div>
+                <div className={"absolute -right-36 bottom-0"}>
+                    <div className={"relative  bg-amber-00  w-[800px] h-[600px]"}>
+                        <Image src={"/der3.png"} alt={"ddd"} style={{objectFit: "cover"}}
+                               fill/>
+                    </div>
+                </div>
+            </div>
+        </MainContainer>
+        <div className={"flex gap-10 items-center justify-center"}>
+            <div className={"w-1/2 flex justify-end"}>
+                <div className={" relative w-[700px] h-[800px]"}>
+                    <Image fill src={"/der4.png"} alt={"ddd"} style={{objectFit: "contain"}}
+                    />
+                </div>
+            </div>
+            <div className={"w-1/2"}>
+                <div className={"max-w-[300px]"}>
+                    <div
+                        className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
+                        Free 30 DAYS TRIAL
+                    </div>
+                    <div className={"text-4xl font-[600]"}>
+                        All your work is safe<br/>with us<br/>
+                    </div>
+                    <div className={clsx(inter.className, "tracking-[-0.1px] text-[#030303ff]")}>
+                        We take your data security seriously, which is why we use advanced encryption protocols to
+                        protect
+                        your files in the cloud. Your data is safe and secure with us.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+const Header = () => {
+    const path = usePathname()
+    return <div className={"flex py-5 w-full items-center justify-between"}>
+        <div className={"flex items-center  justify-between gap-10"}>
+            {/*LOGO*/}
+            <div className={"text-4xl font-bold"}>Lando</div>
+            {/*Navigation*/}
+            <nav className={"flex items-center gap-7"}>
+                <Link className={path === "/" ? "text-[#3164f4] font-semibold" : ""} href={"/"}>Accueil</Link>
+                <Link href={"/"}>Tarifs</Link>
+                <Link href={"/"}>About us</Link>
+                <Link href={"/"}>Contact</Link>
+            </nav>
+        </div>
+        <div className={""}>
+
+            <Link className={"py-3 px-5  font-semibold rounded-xl"} href={"/"}>Se
+                connecter</Link>
+            <Link className={"py-3 px-5 bg-[#3164f4] text-white font-semibold rounded-xl"} href={"/"}>S'inscrire</Link>
+            {/*<Button type={"primary"} title={""} variant={"solid"}/>*/}
+        </div>
+    </div>
+}
+
+interface MainContainerProps {
+    children: React.ReactNode
+}
+
+const MainContainer = ({children}: MainContainerProps) => {
+    return <div className={'max-w-[1300px] mx-auto'}>
+        {children}
+    </div>
+}
+export default Page;
