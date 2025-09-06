@@ -79,7 +79,7 @@ const Page = () => {
                 </div>
             </div>
             <div className={"w-1/2"}>
-                <div className={"max-w-[300px]"}>
+                <div className={"max-w-[500px] space-y-7"}>
                     <div
                         className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
                         Free 30 DAYS TRIAL
@@ -92,9 +92,80 @@ const Page = () => {
                         protect
                         your files in the cloud. Your data is safe and secure with us.
                     </div>
+                    <div>
+                        <Button type={"secondary"} title={"Essayer maintenant ?"}/>
+                    </div>
                 </div>
             </div>
         </div>
+        <MainContainer>
+            <div className={"flex gap-10 items-center justify-center"}>
+                <div className={"w-1/2"}>
+                    <div className={"max-w-[500px] space-y-7"}>
+                        <div
+                            className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
+                            Costsaver
+                        </div>
+                        <div className={"text-4xl font-[600]"}>
+                            Cost saving in a smart way
+                        </div>
+                        <div className={clsx(inter.className, "tracking-[-0.1px] text-[#030303ff]")}>
+                            Powerful tool that helps you reduce costs and save money on your business operations. With
+                            advanced analytics and optimization algorithms, Costsaver analyzes your existing workflows
+                            and identifies areas for improvement.
+                        </div>
+                        <div>
+                            <Button type={"secondary"} title={"Essayer maintenant ?"}/>
+                        </div>
+                    </div>
+                </div>
+                <div className={"w-1/2 flex justify-end"}>
+                    <Image width={"600"} height={"600"} className={""} src={"/der5.png"} alt={"ddd"}
+                           style={{objectFit: "contain"}}
+                    />
+                </div>
+            </div>
+        </MainContainer>
+        <MainContainer>
+            <div className={""}>
+                Testimonials
+            </div>
+            <div className={""}>
+                People love what we do and we want to let your know
+            </div>
+            <div className={"flex  items-center justify-center gap-x-7"}>
+                {[{
+                    comment: "Since implementing Lando our business has seen significant growth",
+                    othor: "John Doe",
+                    role: "CEO",
+                    rate: 4
+                },
+                    {
+                        comment: "I recommend Lando to any business looking for improvement.",
+                        othor: "John Doe",
+                        role: "CEO",
+                        rate: 4
+                    },
+                    {
+                        comment: "I can't imagine running our company without it",
+                        othor: "John Doe",
+                        role: "CEO",
+                        rate: 4
+                    },
+                ].map((element, index) => {
+
+                    return <div key={index}
+                                className={clsx("shadow-[0px_0px_0px_#00000014]", "bg-white p-6 max-w-[400px] space-y-4 rounded-2xl text-center shadow")}>
+                        <div className={"leading-[26px] text-xl font-semibold"}>{element.comment}</div>
+                        <div className={""}>
+                            <div>{element.othor}</div>
+                            <div>{element.role}</div>
+                        </div>
+                    </div>
+
+                })}
+            </div>
+        </MainContainer>
     </div>
 }
 
@@ -133,3 +204,8 @@ const MainContainer = ({children}: MainContainerProps) => {
     </div>
 }
 export default Page;
+
+
+const InterText = () => {
+    return <div className={clsx("", inter.className)}></div>
+}
