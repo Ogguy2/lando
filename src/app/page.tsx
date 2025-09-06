@@ -10,7 +10,7 @@ import {inter} from "@/components/Fonts";
 function Parterns() {
     return <div className={"py-7 text-center space-y-4"}>
         <div className={clsx(inter.className, "text-[#030303ff]")}>Trusted by individuals and teams at the
-            world's best companies
+            world&#39;s best companies
         </div>
         <div className={"flex items-center font-bold  gap-7 text-3xl justify-center"}>
             <div className={""}>LOGO</div>
@@ -188,7 +188,7 @@ const Header = () => {
 
             <Link className={"py-3 px-5  font-semibold rounded-xl"} href={"/"}>Se
                 connecter</Link>
-            <Link className={"py-3 px-5 bg-[#3164f4] text-white font-semibold rounded-xl"} href={"/"}>S'inscrire</Link>
+            <Link className={"py-3 px-5 bg-[#3164f4] text-white font-semibold rounded-xl"} href={"/"}>S&#39;inscrire</Link>
             {/*<Button type={"primary"} title={""} variant={"solid"}/>*/}
         </div>
     </div>
