@@ -5,16 +5,11 @@
 Ce dépôt contient le code source du **Projet 00**, un site simple autour des plantes 🌿.
 Il s’agit d’un projet de pratique et de partage, développé avec **Next.js**.
 
-## 🚀 Objectif
-
-* Mettre en pratique mes compétences en développement full-stack.
-* Démarrer une série de projets numérotés (**Projet 00, Projet 01, …**) afin de progresser étape par étape.
-* Partager mes travaux avec la communauté.
 
 ## 🛠️ Technologies utilisées
 
 * **Next.js** – Framework React pour un rendu côté serveur et des performances optimisées.
-* **Uizard** – Template utilisé pour le design ([Lien ici](https://uizard.io/templates/)).
+* **Uizard** – Template utilisé pour le design ([Lien ici](https://uizard.io/templates/website-templates/e-commerce-website/)).
 
 ## 📂 Structure du projet
 
