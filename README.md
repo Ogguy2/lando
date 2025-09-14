@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Super 👌 tu veux donc que je transforme ton contenu en un **README propre et structuré** pour ton projet (style GitHub).
+Voici une version améliorée et claire :
 
-## Getting Started
+---
 
-First, run the development server:
+# 🌱 Projet 00 – Site sur les Plantes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ce dépôt contient le code source du **Projet 00**, un site simple autour des plantes 🌿.
+Il s’agit d’un projet de pratique et de partage, développé avec **Next.js**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Objectif
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* Mettre en pratique mes compétences en développement full-stack.
+* Démarrer une série de projets numérotés (**Projet 00, Projet 01, …**) afin de progresser étape par étape.
+* Partager mes travaux avec la communauté.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies utilisées
 
-## Learn More
+* **Next.js** – Framework React pour un rendu côté serveur et des performances optimisées.
+* **Uizard** – Template utilisé pour le design ([Lien ici](https://uizard.io/templates/)).
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Structure du projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le site se compose actuellement de **2 pages** :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Page d’accueil
+2. Page de présentation des plantes
 
-## Deploy on Vercel
+## 🔮 Prochaines étapes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Développement du **Projet 01** avec des fonctionnalités supplémentaires.
+* Amélioration du design et ajout de nouvelles pages.
+* Déploiement en ligne pour test et feedback.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contribution & Feedback
+
+Toute remarque, encouragement ou idée d’amélioration est la bienvenue 🙏.
+N’hésitez pas à ouvrir une *issue* ou à proposer une *pull request*.
+
+---
+
+👉 Veux-tu que je l’écrive en **anglais** (comme c’est souvent le cas sur GitHub) ou tu préfères qu’il reste en **français** pour ce projet ?
