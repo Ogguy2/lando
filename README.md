@@ -1,7 +1,4 @@
-Super 👌 tu veux donc que je transforme ton contenu en un **README propre et structuré** pour ton projet (style GitHub).
-Voici une version améliorée et claire :
 
----
 
 # 🌱 Projet 00 – Site sur les Plantes
 
@@ -26,17 +23,14 @@ Le site se compose actuellement de **2 pages** :
 1. Page d’accueil
 2. Page de présentation des plantes
 
-## 🔮 Prochaines étapes
+<!-- ## 🔮 Prochaines étapes -->
 
-* Développement du **Projet 01** avec des fonctionnalités supplémentaires.
+<!-- * Développement du **Projet 01** avec des fonctionnalités supplémentaires.
 * Amélioration du design et ajout de nouvelles pages.
-* Déploiement en ligne pour test et feedback.
+* Déploiement en ligne pour test et feedback. -->
 
 ## 🤝 Contribution & Feedback
 
 Toute remarque, encouragement ou idée d’amélioration est la bienvenue 🙏.
-N’hésitez pas à ouvrir une *issue* ou à proposer une *pull request*.
+<!-- N’hésitez pas à ouvrir une *issue*. -->
 
----
-
-👉 Veux-tu que je l’écrive en **anglais** (comme c’est souvent le cas sur GitHub) ou tu préfères qu’il reste en **français** pour ce projet ?
