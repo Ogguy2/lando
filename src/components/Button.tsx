@@ -1,25 +1,31 @@
-import React from 'react';
-import {clsx} from "clsx";
-import {inter} from "@/components/Fonts";
-
+import React from "react";
+import clsx from "clsx";
+import {interFont} from "@/constants/fonts";
 
 interface ButtonProps {
-    type: "primary" | "secondary",
-    className?: string,
-    title: string
+    title: string;
+    className?: string;
+    variant: "black" | "white",
+    iconBefore?: boolean;
+    onClick?: () => void;
 }
-
-const Button = ({type, title, className = ""}: ButtonProps) => {
-    const typeClass = {
-        primary: "text-white bg-[#3164f4] border border-[#3164f4]",
-        secondary: "text-black border border-black "
+// box-shadow: rgb(3, 3, 3) 0px 1px 0px;
+const Button = ({title, className, variant = "black", onClick}: ButtonProps) => {
+    const variantClass = {
+        black: "bg-black text-white  ",
+        white: "bg-white text-black  ",
     }
-    return (
-        <button
-            className={clsx(typeClass[type], inter.className, "py-3 font-[600] px-5 text-base rounded-xl", className)}>
-            {title}
-        </button>
-    );
-};
+    return <button
+        onClick={onClick}
+        className={clsx(
+            interFont.className,
+            variantClass[variant],
+            " font-[700] py-4 px-16 text-sm cursor-pointer shadow-[0_1px_0px_rgba(3,3,3)]",
+            className,
+            )}
+    >
+        {title}
+    </button>
+}
 
 export default Button;

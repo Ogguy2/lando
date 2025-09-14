@@ -1,211 +1,209 @@
 "use client"
-import Image from "next/image";
+import React from 'react';
 import Link from "next/link";
+import clsx from "clsx";
+import Image from "next/image";
 import Button from "@/components/Button";
-import {usePathname} from "next/navigation";
-import {clsx} from "clsx";
-import {inter} from "@/components/Fonts";
-
-
-function Parterns() {
-    return <div className={"py-7 text-center space-y-4"}>
-        <div className={clsx(inter.className, "text-[#030303ff]")}>Trusted by individuals and teams at the
-            world&#39;s best companies
-        </div>
-        <div className={"flex items-center font-bold  gap-7 text-3xl justify-center"}>
-            <div className={""}>LOGO</div>
-            <div className={""}>LOGO</div>
-            <div className={""}>LOGO</div>
-            <div className={""}>LOGO</div>
-            <div className={""}>LOGO</div>
-        </div>
-    </div>;
-}
+import {fairPlayFont, interFont} from "@/constants/fonts";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {ContactForm, Footer, Header} from "@/components/layout";
 
 const Page = () => {
-    return <div className={""}>
-        <MainContainer>
-            <Header/>
-            <div className={"flex items-center justify-between"}>
-                <div className={"space-y-10"}>
-                    <div
-                        className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
-                        Free 30 DAYS TRIAL
-                    </div>
-                    <div className={clsx("font-[600] leading-[80px] text-7xl ")}>The best way
-                        <br/> to showcase<br/>
-                        your project.
-                    </div>
-                    <div className={clsx(inter.className, "text-[#030303ff] text-xl")}>Here you can put a short
-                        description about your
-                        project.
-                    </div>
-                    <div className={"flex gap-4 items-center"}>
-                        <Button type={"primary"} title={"Essayer gratuitement"}/>
-                        <Button type={"secondary"} title={"Comment ça marche ?"}/>
-                    </div>
-                </div>
-                <div className={clsx("")}>
-                    <Image src={"/der.png"} alt={"ddd"} width={"699"} height={"500"}/>
-                </div>
-            </div>
-            <Parterns/>
-            <div className={"my-[200px]"}></div>
-            <div className={" relative bg-white rounded-2xl  py-[100px] px-[60px]"}>
-                <div className={clsx('')}>
-                    <div className={"text-5xl font-[600] leading-[62px]"}>
-                        Introducing <br/>good solution<br/>
-                    </div>
-                    <div className={clsx(inter.className, "text-xl")}>
-                        Join our community and experience <br/>the benefits today!<br/>
-                    </div>
-                    <div>
-                        <Button type={"primary"} title={"Essayer gratuitement"}/>
-                    </div>
-                </div>
-                <div className={"absolute -right-36 bottom-0"}>
-                    <div className={"relative  bg-amber-00  w-[800px] h-[600px]"}>
-                        <Image src={"/der3.png"} alt={"ddd"} style={{objectFit: "cover"}}
-                               fill/>
-                    </div>
-                </div>
-            </div>
-        </MainContainer>
-        <div className={"flex gap-10 items-center justify-center"}>
-            <div className={"w-1/2 flex justify-end"}>
-                <div className={" relative w-[700px] h-[800px]"}>
-                    <Image fill src={"/der4.png"} alt={"ddd"} style={{objectFit: "contain"}}
-                    />
-                </div>
-            </div>
-            <div className={"w-1/2"}>
-                <div className={"max-w-[500px] space-y-7"}>
-                    <div
-                        className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
-                        Free 30 DAYS TRIAL
-                    </div>
-                    <div className={"text-4xl font-[600]"}>
-                        All your work is safe<br/>with us<br/>
-                    </div>
-                    <div className={clsx(inter.className, "tracking-[-0.1px] text-[#030303ff]")}>
-                        We take your data security seriously, which is why we use advanced encryption protocols to
-                        protect
-                        your files in the cloud. Your data is safe and secure with us.
-                    </div>
-                    <div>
-                        <Button type={"secondary"} title={"Essayer maintenant ?"}/>
-                    </div>
-                </div>
-            </div>
+    return (
+        <div className={""}>
+                <Separator className={"bg-red-500"}/>
+                <Banner/>
+                <Separator className={"bg-red-500"}/>
+                <Catalogue/>
+                <Separator className={"bg-red-500"}/>
+                <Interlude/>
+                <Separator className={"bg-red-500"}/>
+                <Features/>
+                <Separator className={"bg-red-500"}/>
+                <Blogs/>
+                <Separator className={"bg-red-500"}/>
         </div>
-        <MainContainer>
-            <div className={"flex gap-10 items-center justify-center"}>
-                <div className={"w-1/2"}>
-                    <div className={"max-w-[500px] space-y-7"}>
-                        <div
-                            className={clsx(inter.className, "text-[13px] font-[700]  tracking-[2px]   text-[#7f7f7fff]")}>-
-                            Costsaver
-                        </div>
-                        <div className={"text-4xl font-[600]"}>
-                            Cost saving in a smart way
-                        </div>
-                        <div className={clsx(inter.className, "tracking-[-0.1px] text-[#030303ff]")}>
-                            Powerful tool that helps you reduce costs and save money on your business operations. With
-                            advanced analytics and optimization algorithms, Costsaver analyzes your existing workflows
-                            and identifies areas for improvement.
-                        </div>
-                        <div>
-                            <Button type={"secondary"} title={"Essayer maintenant ?"}/>
-                        </div>
-                    </div>
-                </div>
-                <div className={"w-1/2 flex justify-end"}>
-                    <Image width={"600"} height={"600"} className={""} src={"/der5.png"} alt={"ddd"}
-                           style={{objectFit: "contain"}}
-                    />
-                </div>
-            </div>
-        </MainContainer>
-        <MainContainer>
-            <div className={""}>
-                Testimonials
-            </div>
-            <div className={""}>
-                People love what we do and we want to let your know
-            </div>
-            <div className={"flex  items-center justify-center gap-x-7"}>
-                {[{
-                    comment: "Since implementing Lando our business has seen significant growth",
-                    othor: "John Doe",
-                    role: "CEO",
-                    rate: 4
+    );
+};
+
+
+const Blogs = () => {
+    return <div className={"py-20"}>
+        <div className={"grid grid-cols-2 gap-[50px]"}>
+            {[
+                {
+                    othor: "Mellissa Bail",
+                    src: "/blog/blog1.jpg",
+                    edition: "Edition 290",
+                    description: "Comment arroser vos fichues plantes pour qu'elles ne meurent pas au bout d'une semaine"
                 },
-                    {
-                        comment: "I recommend Lando to any business looking for improvement.",
-                        othor: "John Doe",
-                        role: "CEO",
-                        rate: 4
-                    },
-                    {
-                        comment: "I can't imagine running our company without it",
-                        othor: "John Doe",
-                        role: "CEO",
-                        rate: 4
-                    },
-                ].map((element, index) => {
-
-                    return <div key={index}
-                                className={clsx("shadow-[0px_0px_0px_#00000014]", "bg-white p-6 max-w-[400px] space-y-4 rounded-2xl text-center shadow")}>
-                        <div className={"leading-[26px] text-xl font-semibold"}>{element.comment}</div>
-                        <div className={""}>
-                            <div>{element.othor}</div>
-                            <div>{element.role}</div>
+                {
+                    othor: "Jesse Rowe",
+                    src: "/blog/blog2.jpg",
+                    edition: "Edition 290",
+                    description: "Comment rempoter un Monstera sans le tuer et favoriser sa croissance"
+                }
+            ].map((element, index) => {
+                return <div className={"w-full space-y-2 "} key={index}>
+                    <div className={"relative h-[300px]"}>
+                        <Image fill src={element.src}
+                               style={{objectFit: "cover"}}
+                               alt={"banner Rat Plant"}/>
+                        <div
+                            className={"shadow-[0px_0px_0px_#00000014] absolute bottom-4 right-0 z-20 bg-white p-2 pr-[30px]"}>
+                            <div className={clsx(interFont.className, " text-[12px] text-[#c1c1c1]")}>Ecrit par</div>
+                            <div className={clsx(fairPlayFont.className, "")}>{element.othor}</div>
                         </div>
                     </div>
-
-                })}
-            </div>
-        </MainContainer>
+                    <div className={""}>
+                        <div className={"text-[#c1c1c1]"}>{element.edition}</div>
+                        <div className={"text-2xl leading-[28px]"}>{element.description}</div>
+                    </div>
+                </div>
+            })}
+        </div>
     </div>
 }
-
-
-const Header = () => {
-    const path = usePathname()
-    return <div className={"flex py-5 w-full items-center justify-between"}>
-        <div className={"flex items-center  justify-between gap-10"}>
-            {/*LOGO*/}
-            <div className={"text-4xl font-bold"}>Lando</div>
-            {/*Navigation*/}
-            <nav className={"flex items-center gap-7"}>
-                <Link className={path === "/" ? "text-[#3164f4] font-semibold" : ""} href={"/"}>Accueil</Link>
-                <Link href={"/"}>Tarifs</Link>
-                <Link href={"/"}>About us</Link>
-                <Link href={"/"}>Contact</Link>
-            </nav>
+const Interlude = () => {
+    return <div className={"p-32 text-center text-[42px] leading-[42px]"}>
+        <p> L'amour et le travail sont aux êtres humains ce que l'eau et
+            le soleil sont aux plantes</p>
+    </div>
+}
+const Catalogue = () => {
+    return <div className={"py-20"}>
+        <div className={"text-center py-14 text-4xl"}>
+            Catalogues
         </div>
         <div className={""}>
-
-            <Link className={"py-3 px-5  font-semibold rounded-xl"} href={"/"}>Se
-                connecter</Link>
-            <Link className={"py-3 px-5 bg-[#3164f4] text-white font-semibold rounded-xl"} href={"/"}>S&#39;inscrire</Link>
-            {/*<Button type={"primary"} title={""} variant={"solid"}/>*/}
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={4}
+                autoplay={true}
+            >
+                {[
+                    {title: "Jungle Plant", src: "image1.jpg"},
+                    {title: "Outdoor Plants", src: "image2.jpg"},
+                    {title: "Bedroom Plants", src: "image3.jpg"},
+                    {title: "Indoor Plants", src: "image4.jpg"},
+                    {title: "Jungle Plant", src: "image1.jpg"},
+                    {title: "Outdoor Plants", src: "image2.jpg"},
+                    {title: "Bedroom Plants", src: "image3.jpg"},
+                    {title: "Indoor Plants", src: "image4.jpg"}
+                ].map((element, index) => {
+                    return <SwiperSlide
+                        key={index}
+                        className={"space-y-5"}
+                    >
+                        <div className={" flex  relative w-full h-[400px]"}>
+                            <Image fill src={"/catalogue/" + element.src}
+                                   style={{objectFit: "cover"}}
+                                   alt={"banner Rat Plant"}/>
+                        </div>
+                        <div className={"text-2xl"}>
+                            {element.title}
+                        </div>
+                    </SwiperSlide>
+                })}
+            </Swiper>
+            <div className={""}></div>
+        </div>
+    </div>
+}
+const Features = () => {
+    return <div className={"py-20"}>
+        <div className={""}>
+            <div className={"grid grid-cols-4 gap-[50px]"}>
+                <div className={"space-y-5"}>
+                    <div className={"    space-y-7 w-full h-[400px]"}>
+                        <div className={"text-4xl"}>
+                            Featured
+                        </div>
+                        <div className={clsx("space-y-7 leading-[16px]", interFont.className)}>
+                            <p>
+                                Nos plantes sont 100 % biologiques, nous n'utilisons ni pesticides ni produits chimiques
+                                nocifs.
+                            </p>
+                            <p>
+                                Mais s'il vous plaît, ne les mangez pas.
+                            </p>
+                            <div className={""}>
+                                <Button title={"Sho all Favorites"} className={`font-normal  ${interFont.className}`}
+                                        variant={"white"}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"text-2xl"}>
+                    </div>
+                </div>
+                {[
+                    {title: "Jungle Plant", src: "/features/features1.jpg", price: 150},
+                    {title: "Outdoor Plants", src: "/features/features2.jpg", price: 70},
+                    {title: "Bedroom Plants", src: "/features/features3.jpg", price: 50}
+                ].map((element, index) => {
+                    return <div
+                        key={index}
+                        className={"space-y-5"}
+                    >
+                        <div className={"  relative w-full h-[400px]"}>
+                            <Image fill src={element.src}
+                                   style={{objectFit: "cover"}}
+                                   alt={"banner Rat Plant"}/>
+                        </div>
+                        <div className={""}>
+                            <div className={" text-[#c1c1c1]"}>
+                                {element.title}
+                            </div>
+                            <div className={"text-3xl"}>
+                                {element.price}€
+                            </div>
+                        </div>
+                    </div>
+                })}
+            </div>
+            <div className={""}></div>
+        </div>
+    </div>
+}
+const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
+    return <div>
+        <div className={"flex py-10 justify-between items-center"}>
+            <div className={"space-y-12"}>
+                <div className={"space-y-8"}>
+                    <div>
+                        <p className={"text-5xl"}>
+                            Find perfect plants
+                        </p>
+                        <p className={"text-5xl"}>
+                            for your home
+                        </p>
+                    </div>
+                    <p className={"text-lg leading-[22px] tracking-normal"}>Beautiful plants that encourage
+                        you to get creative.</p>
+                </div>
+                <div className={""}>
+                    <Button variant={"black"} className={`${interFont.className} text-xs`} title={"SHOP NOW"}/>
+                </div>
+            </div>
+            <div className={" flex  relative w-[600px] h-[700px]"}>
+                <Image fill src={"/banner/background.jpg"}
+                       style={{objectFit: "cover"}}
+                       alt={"banner Rat Plant"}/>
+            </div>
         </div>
     </div>
 }
 
-interface MainContainerProps {
-    children: React.ReactNode
+
+
+
+
+interface SeparatorProps {
+    className?: string;
 }
 
-const MainContainer = ({children}: MainContainerProps) => {
-    return <div className={'max-w-[1300px] mx-auto'}>
-        {children}
+const Separator = ({className}: SeparatorProps) => (
+    <div className={className}>
     </div>
-}
+)
 export default Page;
-
-
-const InterText = () => {
-    return <div className={clsx("", inter.className)}></div>
-}
