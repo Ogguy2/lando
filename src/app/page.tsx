@@ -3,6 +3,7 @@ import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Button from "@/components/Button";
+import { motion } from "motion/react";
 import { fairPlayFont, interFont } from "@/constants/fonts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
@@ -10,17 +11,17 @@ import Link from "next/link";
 const Page = () => {
   return (
     <div className={""}>
-      <Separator className={"bg-red-500"} />
+      <Separator  />
       <Banner />
-      <Separator className={"bg-red-500"} />
+      <Separator  />
       <Catalogue />
-      <Separator className={"bg-red-500"} />
+      <Separator  />
       <Interlude />
-      <Separator className={"bg-red-500"} />
+      <Separator  />
       <Features />
-      <Separator className={"bg-red-500"} />
+      <Separator  />
       <Blogs />
-      <Separator className={"bg-red-500"} />
+      <Separator  />
     </div>
   );
 };
@@ -28,7 +29,7 @@ const Page = () => {
 const Blogs = () => {
   return (
     <div className={"py-20"}>
-      <div className={"grid grid-cols-2 gap-[50px]"}>
+      <div className={"grid md:grid-cols-2 grid-cols-1 gap-[50px]"}>
         {[
           {
             othor: "Mellissa Bail",
@@ -46,39 +47,46 @@ const Blogs = () => {
           },
         ].map((element, index) => {
           return (
-            <div className={"w-full space-y-2 "} key={index}>
-              <div className={"relative h-[300px]"}>
-                <Image
-                  fill
-                  src={element.src}
-                  style={{ objectFit: "cover" }}
-                  alt={"banner Rat Plant"}
-                />
-                <div
-                  className={
-                    "shadow-[0px_0px_0px_#00000014] absolute bottom-4 right-0 z-20 bg-white p-2 pr-[30px]"
-                  }
-                >
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2  == 1 ? +100 : -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className={"w-full space-y-2 "}>
+                <div className={"relative h-[300px]"}>
+                  <Image
+                    fill
+                    src={element.src}
+                    style={{ objectFit: "cover" }}
+                    alt={"banner Rat Plant"}
+                  />
                   <div
-                    className={clsx(
-                      interFont.className,
-                      " text-[12px] text-[#c1c1c1]"
-                    )}
+                    className={
+                      "shadow-[0px_0px_0px_#00000014] absolute bottom-4 right-0 z-20 bg-white p-2 pr-[30px]"
+                    }
                   >
-                    Ecrit par
+                    <div
+                      className={clsx(
+                        interFont.className,
+                        " text-[12px] text-[#c1c1c1]"
+                      )}
+                    >
+                      Ecrit par
+                    </div>
+                    <div className={clsx(fairPlayFont.className, "")}>
+                      {element.othor}
+                    </div>
                   </div>
-                  <div className={clsx(fairPlayFont.className, "")}>
-                    {element.othor}
+                </div>
+                <div className={""}>
+                  <div className={"text-[#c1c1c1]"}>{element.edition}</div>
+                  <div className={"text-2xl leading-[28px]"}>
+                    {element.description}
                   </div>
                 </div>
               </div>
-              <div className={""}>
-                <div className={"text-[#c1c1c1]"}>{element.edition}</div>
-                <div className={"text-2xl leading-[28px]"}>
-                  {element.description}
-                </div>
-              </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -113,16 +121,25 @@ const Catalogue = () => {
             { title: "Indoor Plants", src: "image4.jpg" },
           ].map((element, index) => {
             return (
-              <SwiperSlide key={index} className={"space-y-5"}>
-                <div className={" flex  relative w-full h-[400px]"}>
-                  <Image
-                    fill
-                    src={"/catalogue/" + element.src}
-                    style={{ objectFit: "cover" }}
-                    alt={"banner Rat Plant"}
-                  />
-                </div>
-                <div className={"text-2xl"}>{element.title}</div>
+              <SwiperSlide key={index} className={""}>
+                <motion.div
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.2 }}
+                >
+                  <div className="space-y-5">
+                    <div className={"flex  relative w-full h-[400px]"}>
+                      <Image
+                        fill
+                        src={"/catalogue/" + element.src}
+                        style={{ objectFit: "cover" }}
+                        alt={"banner Rat Plant"}
+                      />
+                    </div>
+                    <div className={"text-2xl"}>{element.title}</div>
+                  </div>
+                </motion.div>
               </SwiperSlide>
             );
           })}
@@ -184,20 +201,29 @@ const Features = () => {
             },
           ].map((element, index) => {
             return (
-              <div key={index} className={"space-y-5"}>
-                <div className={"  relative w-full h-[400px]"}>
-                  <Image
-                    fill
-                    src={element.src}
-                    style={{ objectFit: "cover" }}
-                    alt={"banner Rat Plant"}
-                  />
+              <motion.div
+                key={index}
+                
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.2 }}
+              >
+                <div className={"space-y-5"}>
+                  <div className={"relative w-full h-[400px]"}>
+                    <Image
+                      fill
+                      src={element.src}
+                      style={{ objectFit: "cover" }}
+                      alt={"banner Rat Plant"}
+                    />
+                  </div>
+                  <div className={""}>
+                    <div className={" text-[#c1c1c1]"}>{element.title}</div>
+                    <div className={"text-3xl"}>{element.price}€</div>
+                  </div>
                 </div>
-                <div className={""}>
-                  <div className={" text-[#c1c1c1]"}>{element.title}</div>
-                  <div className={"text-3xl"}>{element.price}€</div>
-                </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -210,36 +236,49 @@ const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
   return (
     <div>
       <div className={"flex py-10 justify-between items-center"}>
-        <div className={"space-y-12"}>
-          <div className={"space-y-8"}>
-            <div>
-              <p className={"text-5xl"}>Find perfect plants</p>
-              <p className={"text-5xl"}>for your home</p>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={"space-y-12"}>
+            <div className={"space-y-8"}>
+              <div>
+                <p className={"text-5xl"}>Find perfect plants</p>
+                <p className={"text-5xl"}>for your home</p>
+              </div>
+              <p className={"text-lg leading-[22px] tracking-normal"}>
+                Beautiful plants that encourage you to get creative.
+              </p>
             </div>
-            <p className={"text-lg leading-[22px] tracking-normal"}>
-              Beautiful plants that encourage you to get creative.
-            </p>
+            <div className={""}>
+              <Link
+                className={clsx(
+                  interFont.className,
+                  " font-[700] bg-black text-white py-4 text-sx px-16 text-xs cursor-pointer shadow-[0_1px_0px_rgba(3,3,3)]"
+                )}
+                href={"/product"}
+              >
+                SHOP NOW
+              </Link>
+            </div>
           </div>
-          <div className={""}>
-            <Link
-              className={clsx(
-                interFont.className,
-                " font-[700] bg-black text-white py-4 text-sx px-16 text-xs cursor-pointer shadow-[0_1px_0px_rgba(3,3,3)]"
-              )}
-              href={"/product"}
-            >
-              SHOP NOW
-            </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={" flex  relative w-[600px] h-[700px]"}>
+            <Image
+              fill
+              src={"/banner/background.jpg"}
+              style={{ objectFit: "cover" }}
+              alt={"banner Rat Plant"}
+            />
           </div>
-        </div>
-        <div className={" flex  relative w-[600px] h-[700px]"}>
-          <Image
-            fill
-            src={"/banner/background.jpg"}
-            style={{ objectFit: "cover" }}
-            alt={"banner Rat Plant"}
-          />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

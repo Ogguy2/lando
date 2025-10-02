@@ -64,7 +64,7 @@ export const Footer = () => {
     return <div className={""}>
         <div className={"flex py-10 justify-between "}>
             <div className={"text-3xl font-extrabold"}><Link href={"/"}>Rad Plants</Link></div>
-            <div className={"  flex gap-x-40 justify-between "}>
+            <div className={"flex gap-x-40 justify-between "}>
                 <div className={"  space-y-4"}>
                     <div className={`${interFont.className}   text-[#c1c1c1ff] text-[12px]`}>
                         Contact
