@@ -2,26 +2,27 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
-import Button from "@/components/Button";
 import { motion } from "motion/react";
 import { fairPlayFont, interFont } from "@/constants/fonts";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Link from "next/link";
+import Separator from "@/components/Seperator";
+import { Pagination } from "swiper/modules";
 
 const Page = () => {
   return (
     <div className={""}>
-      <Separator  />
+      <Separator />
       <Banner />
-      <Separator  />
+      <Separator />
       <Catalogue />
-      <Separator  />
+      <Separator />
       <Interlude />
-      <Separator  />
+      <Separator />
       <Features />
-      <Separator  />
+      <Separator />
       <Blogs />
-      <Separator  />
+      <Separator />
     </div>
   );
 };
@@ -49,7 +50,7 @@ const Blogs = () => {
           return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2  == 1 ? +100 : -100 }}
+              initial={{ opacity: 0, x: index % 2 == 1 ? +100 : -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
@@ -106,10 +107,32 @@ const Interlude = () => {
 };
 const Catalogue = () => {
   return (
-    <div className={"py-20"}>
+    <div className={" py-2 lg:py-10"}>
       <div className={"text-center py-14 text-4xl"}>Catalogues</div>
       <div className={""}>
-        <Swiper spaceBetween={50} slidesPerView={4} autoplay={true}>
+        {/* Make swiper responsive */}
+        <Swiper
+          // spaceBetween={50}
+          autoplay={true}
+          modules={[Pagination]}
+          breakpoints={{
+            0: {
+              slidesPerView: "auto",
+            },
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
+          }}
+        >
           {[
             { title: "Jungle Plant", src: "image1.jpg" },
             { title: "Outdoor Plants", src: "image2.jpg" },
@@ -121,7 +144,7 @@ const Catalogue = () => {
             { title: "Indoor Plants", src: "image4.jpg" },
           ].map((element, index) => {
             return (
-              <SwiperSlide key={index} className={""}>
+              <SwiperSlide key={index} className={"w-[80%]! px-5 md:w-1/3!"}>
                 <motion.div
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -129,8 +152,9 @@ const Catalogue = () => {
                   transition={{ duration: 0.4, delay: index * 0.2 }}
                 >
                   <div className="space-y-5">
-                    <div className={"flex  relative w-full h-[400px]"}>
+                    <div className={"flex  relative  h-[300px] md "}>
                       <Image
+                        // className="hidden"
                         fill
                         src={"/catalogue/" + element.src}
                         style={{ objectFit: "cover" }}
@@ -203,7 +227,6 @@ const Features = () => {
             return (
               <motion.div
                 key={index}
-                
                 viewport={{ once: true }}
                 whileInView={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
@@ -235,14 +258,19 @@ const Features = () => {
 const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
   return (
     <div>
-      <div className={"flex py-10 justify-between items-center"}>
+      {/* <div className={"block md:flex py-10 justify-between  items-center"}> */}
+      <div
+        className={
+          "block space-y-10 lg:flex py-10 justify-between  items-center"
+        }
+      >
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className={"space-y-12"}>
-            <div className={"space-y-8"}>
+          <div className={"flex flex-col   space-y-12"}>
+            <div className={"space-y-8 text-center lg:text-left"}>
               <div>
                 <p className={"text-5xl"}>Find perfect plants</p>
                 <p className={"text-5xl"}>for your home</p>
@@ -251,7 +279,7 @@ const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
                 Beautiful plants that encourage you to get creative.
               </p>
             </div>
-            <div className={""}>
+            <div className={"text-center lg:text-left"}>
               <Link
                 className={clsx(
                   interFont.className,
@@ -269,13 +297,19 @@ const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="flex bg-amber-50 flex-col items-center justify-center"
         >
-          <div className={" flex  relative w-[600px] h-[700px]"}>
+          <div
+            className={
+              "relative w-[100%] h-[400px] lg:w-[500px] lg:h-[600px] xl:w-[600px] xl:h-[700px]"
+            }
+          >
             <Image
               fill
               src={"/banner/background.jpg"}
               style={{ objectFit: "cover" }}
               alt={"banner Rat Plant"}
+              className={""}
             />
           </div>
         </motion.div>
@@ -284,11 +318,4 @@ const Banner: ({}) => React.ReactNode = ({}): React.ReactNode => {
   );
 };
 
-interface SeparatorProps {
-  className?: string;
-}
-
-const Separator = ({ className }: SeparatorProps) => (
-  <div className={className}></div>
-);
 export default Page;

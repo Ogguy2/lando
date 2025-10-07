@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import "swiper/css";
-import "swiper/css";
 import "swiper/css/autoplay";
+import 'swiper/css/pagination';
 import React from "react";
 import { fairPlayFont } from "@/constants/fonts";
-import {
-  ContactForm,
-  Footer,
-  Header,
-  MainContainer,
-} from "@/components/layout";
+import { ContactForm, MainContainer } from "@/components/layout";
+import Header from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Theme } from "@radix-ui/themes";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,13 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${fairPlayFont.className}  antialiased`}>
-        <MainContainer>
-          <Header />
-          {children}
-          <ContactForm />
-          <Footer />
-        </MainContainer>
+      <body className={` `}>
+        <Theme>
+          <MainContainer
+            className={`${fairPlayFont.className}  min-h-screen flex flex-col justify-between `}
+          >
+            <Header />
+            {children}
+            <ContactForm />
+            {/* <Footer /> */}
+          </MainContainer>
+        </Theme>
       </body>
     </html>
   );
