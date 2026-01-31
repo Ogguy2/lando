@@ -119,18 +119,18 @@ const Catalogue = () => {
             0: {
               slidesPerView: "auto",
             },
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-            1280: {
-              slidesPerView: 4,
-            },
+            // 640: {
+            //   slidesPerView: 1,
+            // },
+            // 768: {
+            //   slidesPerView: 2,
+            // },
+            // 1024: {
+            //   slidesPerView: 3,
+            // },
+            // 1280: {
+            //   slidesPerView: 4,
+            // },
           }}
         >
           {[
@@ -144,7 +144,7 @@ const Catalogue = () => {
             { title: "Indoor Plants", src: "image4.jpg" },
           ].map((element, index) => {
             return (
-              <SwiperSlide key={index} className={"w-[80%]! px-5 md:w-1/3!"}>
+              <SwiperSlide key={index} className={"w-[80%]! px-5 sm:w-[50%]!  md:w-1/3! lg:w-1/4!"}>
                 <motion.div
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
